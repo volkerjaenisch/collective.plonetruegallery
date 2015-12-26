@@ -39,8 +39,8 @@ class GalleryView(BrowserView):
     def getAdaptedGallery(self, gallery):
         return getGalleryAdapter(gallery, self.request)
 
+#    @ram.cache(render_20mincache)
     @property
-    @ram.cache(render_20mincache)
     def categories(self):
         subgalleries = self.subgalleries
         cats = set([])
