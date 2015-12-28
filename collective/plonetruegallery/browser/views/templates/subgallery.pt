@@ -27,7 +27,7 @@
       <li class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
                                        image adapted/get_random_image">
         <a tal:attributes="href gallery/getURL">
-          <img tal:condition="image" tal:attributes="src image/thumb_url" />
+          <img tal:condition="image" tal:attributes="src image/small_url" />
           <p tal:content="gallery/Title" />
         </a>
       </li>
