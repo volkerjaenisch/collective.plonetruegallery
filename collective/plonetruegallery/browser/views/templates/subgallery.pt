@@ -24,13 +24,43 @@
   </div>
   <ul id="subgallery-galleries">
     <tal:galleries tal:repeat="gallery view/subgalleries">
-      <li class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
-                                       image adapted/get_random_image">
-        <a tal:attributes="href gallery/getURL">
-          <img tal:condition="image" tal:attributes="src image/preview_url" />
-          <p tal:content="gallery/Title" />
-        </a>
-      </li>
+        <li class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
+                                      image adapted/get_random_image;
+                                      date python:here.toLocalizedTime(gallery.Date);
+                                      creator gallery/Creator;
+                                      mtool context/@@plone_tools/membership;
+                                      author python:mtool.getMemberInfo(creator);
+                                      name python:'(' + str(author and author['fullname'] or creator) + ')'">
+            <table >
+            <tbody>
+            <tr >
+              <td  valign="bottom" colspan="2">
+                <a tal:attributes="href gallery/getURL" >
+                    <span id="gallery-title" tal:content="string:${date} ${gallery/Title}"/>
+                    <span>&nbsp;</span>
+                    <span id="gallery-author" tal:content=name />
+                </a>
+              </td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+            <td valign="top">
+                <a tal:attributes="href gallery/getURL">
+                   <img tal:condition="image" tal:attributes="src image/preview_url" />
+                </a>
+            </td>
+            <td valign="top">
+                <a tal:attributes="href gallery/getURL">
+                </a>
+                <div style="overflow-y:auto; max-height:350px;">
+                   <div tal:content="gallery/Description" />
+                </div>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+        </li>
     </tal:galleries>
   </ul>
   <div id="subgallery-paging">
