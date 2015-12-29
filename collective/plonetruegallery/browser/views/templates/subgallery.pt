@@ -47,7 +47,7 @@
             <tr>
             <td valign="top">
                 <a tal:attributes="href gallery/getURL">
-                   <img tal:condition="image" tal:attributes="src image/preview_url" />
+                   <img tal:condition="image" tal:attributes="src image/thumb_url" />
                 </a>
             </td>
             <td valign="top">

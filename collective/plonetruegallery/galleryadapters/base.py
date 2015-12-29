@@ -143,6 +143,11 @@ class ImageInfo(object):
         return "%s/@@images/image/%s" % (base_url, gallery_thumbnail_size)
 
     @property
+    def preview_url(self):
+        base_url = self.base_url
+        return "%s/@@images/image/%s" % (base_url, 'preview')
+
+    @property
     def link_url(self):
         if self.enable_bodytext and self.portal_type in ('GalleryImage',):
             field = self.obj.getField('linksTo')
