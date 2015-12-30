@@ -22,47 +22,43 @@
   </div>
   <div id="subgallery-info">
   </div>
-  <ul id="subgallery-galleries">
-    <tal:galleries tal:repeat="gallery view/subgalleries">
-        <li class="gallery" tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
+  <table class="table" id="subgallery-galleries">
+    <tbody>
+      <tal:block tal:repeat="gallery view/subgalleries" >
+         <tal:block tal:define="adapted python:view.getAdaptedGallery(gallery.getObject());
                                       image adapted/get_random_image;
                                       date python:here.toLocalizedTime(gallery.Date);
                                       creator gallery/Creator;
                                       mtool context/@@plone_tools/membership;
                                       author python:mtool.getMemberInfo(creator);
                                       name python:'(' + str(author and author['fullname'] or creator) + ')'">
-            <table >
-            <tbody>
-            <tr >
-              <td  valign="bottom" colspan="2">
+            <tr class="gallery-head" >
+              <td  valign="bottom" colspan="2" class="gallery-head-row">
                 <a tal:attributes="href gallery/getURL" >
-                    <span id="gallery-title" tal:content="string:${date} ${gallery/Title}"/>
+                    <span id="gallery-head-title" tal:content="string:${date} ${gallery/Title}"/>
                     <span>&nbsp;</span>
-                    <span id="gallery-author" tal:content=name />
+                    <span id="gallery-head-author" tal:content=name />
                 </a>
               </td>
-              <td>
-              </td>
             </tr>
-            <tr>
-            <td valign="top">
-                <a tal:attributes="href gallery/getURL">
-                   <img tal:condition="image" tal:attributes="src image/thumb_url" />
-                </a>
-            </td>
-            <td valign="top">
-                <a tal:attributes="href gallery/getURL">
-                </a>
-                <div style="overflow-y:auto; max-height:350px;">
-                   <div tal:content="gallery/Description" />
-                </div>
-            </td>
+            <tr class="gallery-content">
+                <td style="width=30%" valign="top" class="gallery-content-image">
+                    <a tal:attributes="href gallery/getURL">
+                       <img tal:condition="image" tal:attributes="src image/thumb_url" />
+                    </a>
+                </td>
+                <td valign="top" class="gallery-content-desc">
+                    <a tal:attributes="href gallery/getURL">
+                    </a>
+                    <div style="overflow-y:auto; max-height:350px;">
+                       <div tal:content="gallery/Description" />
+                    </div>
+                </td>
             </tr>
-            </tbody>
-            </table>
-        </li>
-    </tal:galleries>
-  </ul>
+          </tal:block>
+       </tal:block>
+     </tbody>
+  </table>
   <div id="subgallery-paging">
   </div>
 </div>
