@@ -41,10 +41,10 @@
                 </a>
               </td>
             </tr>
-            <tr class="gallery-content">
-                <td style="width=30%" valign="top" class="gallery-content-image">
+            <tr class="gallery-content-row">
+                <td style="width=30%" valign="top" class="gallery-content-image-box">
                     <a tal:attributes="href gallery/getURL">
-                       <img tal:condition="image" tal:attributes="src image/thumb_url" />
+                       <img class="gallery-content-image" tal:condition="image" tal:attributes="src image/thumb_url" />
                     </a>
                 </td>
                 <td valign="top" class="gallery-content-desc">
