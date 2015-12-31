@@ -1,13 +1,15 @@
-from zope.component import getUtilitiesFor
+from zope.component import getUtilitiesFor, queryUtility
 from zope.component.hooks import getSite
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from collective.plonetruegallery.interfaces import IGallerySettings, IDisplayType
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.app.vocabularies.catalog import SearchableTextSource
 from plone.app.vocabularies.catalog import parse_query
+from plone.namedfile.interfaces import IAvailableSizes
 from collective.plonetruegallery.interfaces import IGallery
 from Products.CMFCore.utils import getToolByName
 from collective.plonetruegallery import PTGMessageFactory as _
+
 
 #from collective.plonetruegallery.utils import getGalleryAdapter
     
@@ -88,6 +90,12 @@ def SizeVocabulary(context):
                             token=format_size(pair),
                                 title=pair) for pair in sizes if not format_size(pair) in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
                 image_terms =image_terms + terms
+            sizes = queryUtility(IAvailableSizes)()
+            terms = [SimpleTerm(value=size,
+                     token=size,
+                     title=size) for size in sizes if not size in ['icon', 'tile', 'listing', 'mini', 'preview', 'thumb', 'large', 'small', 'medium']]
+            image_terms =image_terms + terms
+
         
         return SimpleVocabulary(image_terms)
         
