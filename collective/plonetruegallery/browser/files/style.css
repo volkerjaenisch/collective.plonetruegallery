@@ -39,11 +39,18 @@ p.plonetruegallery a img {
     overflow: auto;
 }
 
+  .subgallery-subgallery {
+    display:inline-block;
+    vertical-align: top;
+      width: 100%;
+    }
+
+
 @media (min-width:720px){
   .subgallery-subgallery {
     display:inline-block;
     vertical-align: top;
-      width: 50%;
+      width: 49%;
       padding: 0.5em 0.5em 0 0;
     }
 }
@@ -60,7 +67,7 @@ p.plonetruegallery a img {
     .subgallery-subgallery  {
     display:inline-block;
     vertical-align: top;
-      width: 25%;
+      width: 24%;
       padding: 0.5em 0.5em 0 0;
     }
 }
