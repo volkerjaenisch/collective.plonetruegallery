@@ -46,8 +46,7 @@ class BasicCollectionImageInformationRetriever(BTIIR):
                             parsedquery[new_name] = query
                 return parsedquery
             
-            query = queryparser.parseFormquery(
-            self.gallery, self.gallery.query)
+            query = queryparser.parseFormquery(self.gallery, self.gallery.query)
             catalog = getToolByName(self.gallery, 'portal_catalog')
             if 'Subject' in kwargs:
                 if not 'Subject' in query:
@@ -64,7 +63,18 @@ class BasicCollectionImageInformationRetriever(BTIIR):
             
             query = fix_query(query)
 
-            results = catalog(query)
+            sort_order = 'reverse' if self.gallery.sort_reversed else 'ascending'
+            b_size = self.gallery.item_count
+            sort_on = self.gallery.sort_on
+            limit = self.gallery.limit
+
+            results = catalog(query, b_size=b_size,
+                                   sort_on=sort_on,
+                                   sort_order=sort_order,
+                                   limit=limit,
+                                   )
+
+
             uid = IUUID(self.gallery, None)
             if uid is None:
                 uid = self.gallery.UID()
