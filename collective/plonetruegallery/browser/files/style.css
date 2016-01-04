@@ -41,7 +41,8 @@ p.plonetruegallery a img {
 
 @media (min-width:720px){
   .subgallery-subgallery {
-      float:left;
+    display:inline-block;
+    vertical-align: top;
       width: 50%;
       padding: 0.5em 0.5em 0 0;
     }
@@ -49,14 +50,16 @@ p.plonetruegallery a img {
 
 @media (min-width:1200px){
     .subgallery-subgallery  {
-      float:left;
+    display:inline-block;
+    vertical-align: top;
       width: 33%;
       padding: 0.5em 0.5em 0 0;
     }
 }
 @media (min-width:1900px){
     .subgallery-subgallery  {
-      float:left;
+    display:inline-block;
+    vertical-align: top;
       width: 25%;
       padding: 0.5em 0.5em 0 0;
     }
