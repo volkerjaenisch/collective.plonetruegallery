@@ -73,6 +73,10 @@ p.plonetruegallery a img {
    overflow: auto;
 }
 
+.gallery-content-image-box {
+    float: left;
+    padding: 0 0.5em;
+}
 
 .gallery-content-desc {
     vertical-align:top;
