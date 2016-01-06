@@ -56,7 +56,7 @@ p.plonetruegallery a img {
     display:inline-block;
     vertical-align: top;
       width: 49%;
-      padding: 1.5em 0.5em 0 0;
+      padding: 1.5em 1.5em 0 0;
     }
 }
 
@@ -65,7 +65,7 @@ p.plonetruegallery a img {
     display:inline-block;
     vertical-align: top;
       width: 33%;
-      padding: 1.5em 0.5em 0 0;
+      padding: 1.5em 1.5em 0 0;
     }
 }
 
@@ -84,7 +84,7 @@ p.plonetruegallery a img {
 
 .gallery-content-image-box {
     float: left;
-    padding: 0 0.5em;
+    padding: 0.2em 1em 0 0;
 }
 
 .gallery-content-desc {
