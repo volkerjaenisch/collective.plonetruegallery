@@ -83,7 +83,7 @@ def SizeVocabulary(context):
                 sizes = portal_properties.imaging_properties.getProperty('allowed_sizes')
                 for pair in sizes:
                     term = SimpleTerm(value=format_size(pair), token=format_size(pair), title=pair)
-                    image_terms[pair] = term
+                    size_terms[pair] = term
             sizes = queryUtility(IAvailableSizes)()
             for size in sizes:
                 size_terms[size] = SimpleTerm(value=size, token=size, title=size)
