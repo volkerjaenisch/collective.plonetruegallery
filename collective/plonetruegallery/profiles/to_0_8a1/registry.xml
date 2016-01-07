@@ -1,0 +1,30 @@
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plone">
+    <records prefix="plone.resources/plonetruegallery"
+            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+   <value key="js">
+       <element>++resource++jquery.js</element>
+       <element>++resource++carousel.js</element>
+       <element>++resource++jq.timer.js</element>
+       <element>++resource++true-gallery.js</element>
+       <element>++resource++plonetruegallery-portlet.js</element>
+   </value>
+   <value key="css">
+     <element>++resource++jquery.jcarousel.css</element>
+     <element>++resource++truegallery.carousel.css</element>
+     <element>++resource++truegallery.css</element>
+     <element>++resource++subgallery.css</element>
+     <element>++resource++plonetruegallery-portlet.css</element>
+     <element>++resource++plonetruegallery.resources/style.css</element>
+   </value>
+</records>
+<records prefix="plone.bundles/plonetruegallery"
+         interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+ <value key="resources">
+   <element>plonetruegallery</element>
+ </value>
+ <value key="enabled">True</value>
+ <value key="jscompilation">++plone++static/plonetruegallery-compiled.min.js</value>
+ <value key="csscompilation">++plone++static/plonetruegallery-compiled.min.css</value>
+</records>
+    </registry>
