@@ -48,7 +48,9 @@ class GalleryView(BrowserView):
             for item in subgalleries:
                 cats = cats | set(getattr(item, 'Subject'))
 
-        return list(cats)
+        cat_list = list(cats)
+        cat_list.sort()
+        return cat_list
 
     @property
     @memoize
